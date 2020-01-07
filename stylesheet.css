@@ -1,0 +1,42 @@
+h1,
+h2 {
+  text-align: left;
+  margin: 3% 22%;
+}
+.grid {
+  padding: 2%;
+  border-style: double;
+  border-color: blue;
+  text-align: center;
+  margin: 2% 10% 2% 10%;
+  font-size: small;
+}
+
+.quiz-options {
+  margin: 3% 20%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+}
+
+.user-response {
+  margin: 0.5% 2%;
+}
+
+.continent {
+  text-align: center;
+  padding: 5%;
+  font-size: medium;
+}
+
+.quiz-area {
+  display: none;
+}
+
+.quiz-container {
+  text-align: left;
+  margin: 3% 22%;
+  background-color: peachpuff;
+  padding: 3%;
+}
