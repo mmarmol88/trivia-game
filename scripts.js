@@ -38,12 +38,17 @@ questionOptions.addEventListener('click', questionHandler);
 function questionHandler(evt) {
   evt.preventDefault();
   console.log(evt);
+  const questionParameter = `.${evt.target.dataset.key}`;
+  console.log(questionParameter);
   //provide the question and answers into the question-area
   // const questionArea = document.querySelector('.question');
   // questionArea.innerText = Americas[0].question;
   //Grab the quiz area to un-hide it
-  const quizArea = document.querySelector('.americas-fifty');
+  const quizArea = document.querySelector(`${questionParameter}`);
+
   quizArea.style.display = 'inline';
+  console.log(quizArea);
+
   handleAnswer();
 }
 
@@ -53,8 +58,8 @@ console.log(answerButton);
 answerButton.addEventListener('click', handleAnswer);
 
 function handleAnswer(evt) {
-  evt.preventDefault();
-  //   console.log(evt);
+  // evt.preventDefault();
+  console.log(evt);
   if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
     console.log(`correct answer: ${evt.target}`);
     // console.log(evt);
@@ -62,8 +67,9 @@ function handleAnswer(evt) {
     evt.target.style.color = 'white';
     evt.target.innerText = 'You are correct';
     //Attempt to hide the question area
+
     //Add function to run once the user has picked an answer
-    buttonDisabler();
+    // buttonDisabler();
   } else if (
     evt.target.nodeName === 'BUTTON' &&
     evt.target.dataset.key !== 'xy'
@@ -72,7 +78,7 @@ function handleAnswer(evt) {
     evt.target.style.backgroundColor = 'red';
     evt.target.style.color = 'white';
     evt.target.innerText = "You'll get it next time";
-    buttonDisabler();
+    // buttonDisabler();
   }
   //Attempt to hide the question area
 }
@@ -81,12 +87,13 @@ function handleAnswer(evt) {
 // const responseButtons = document.querySelector('.question-area');
 
 //create a function to disable the user response buttons
-function buttonDisabler(evt) {
-  if (
-    evt.target.className === 'disable-button' &&
-    evt.target.target.disabled === false
-  ) {
-    console.log(evt.target);
-    evt.target.disabled = true;
-  }
-}
+// function buttonDisabler(evt) {
+//   console.log(evt);
+//   if (
+//     evt.target.className === 'disable-button' &&
+//     evt.target.target.disabled === false
+//   ) {
+//     console.log(evt.target);
+//     evt.target.disabled = true;
+//   }
+// }

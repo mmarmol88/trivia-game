@@ -3,6 +3,9 @@ h2 {
   text-align: left;
   margin: 3% 22%;
 }
+ul {
+  list-style: none;
+}
 .grid {
   padding: 2%;
   border-style: double;
@@ -28,10 +31,9 @@ h2 {
   text-align: center;
   padding: 5%;
   font-size: medium;
-  font-weight: ;
 }
 
-.americas-fifty,
+.americas-50,
 .americas-100 {
   display: none;
 }
