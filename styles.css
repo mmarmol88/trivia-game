@@ -1,7 +1,12 @@
+body {
+  margin: auto;
+}
 h1,
 h2 {
   text-align: left;
   margin: 3% 22%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
 }
 ul {
   list-style: none;
@@ -12,6 +17,7 @@ ul {
   text-align: center;
   margin: 2% 10% 2% 10%;
   font-size: small;
+  font-family: 'Raleway', sans-serif;
 }
 
 .quiz-options {
@@ -31,6 +37,9 @@ ul {
   text-align: center;
   padding: 5%;
   font-size: medium;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .americas-50,
@@ -46,16 +55,24 @@ ul {
 .asia-200,
 .asia-500 {
   display: none;
+  font-family: 'Raleway', sans-serif;
 }
 
 .quiz-container {
   text-align: left;
   margin: 3% 20%;
-  padding: 3%;
+  padding: 1%;
 }
 
 .notification {
   display: none;
   text-align: center;
   border-style: double;
+  /* margin: 2%; */
+}
+
+.check-score,
+.notify-player {
+  margin: 2%;
+  padding: 1%;
 }
