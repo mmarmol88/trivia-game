@@ -13,37 +13,38 @@
     </header>
 
     <main>
-      <h2>Choose wisely to test your knowledge:</h2>
+      <h2>Choose wisely to test your History knowledge</h2>
       <section class="quiz-options">
         <div class="continent">Asia</div>
         <div class="continent">Europe</div>
         <div class="continent">The Americas</div>
-        <button class="grid" data-points="50">50pts</button>
-        <button class="grid">50pts</button>
-        <button class="grid">50pts</button>
-        <button class="grid">100pts</button>
-        <button class="grid">100pts</button>
-        <button class="grid">100pts</button>
-        <button class="grid">200pts</button>
-        <button class="grid">200pts</button>
-        <button class="grid">200pts</button>
-        <button class="grid">500pts</button>
-        <button class="grid">500pts</button>
-        <button class="grid">500pts</button>
+        <button class="grid" data-points-asia="50">50pts</button>
+        <button class="grid" data-points-europe="50">50pts</button>
+        <button class="grid" data-points-americas="50">50pts</button>
+        <button class="grid" data-points-asia="100">100pts</button>
+        <button class="grid" data-points-europe="100">100pts</button>
+        <button class="grid" data-points-americas="100">100pts</button>
+        <button class="grid" data-points-asia="200">200pts</button>
+        <button class="grid" data-points-europe="200">200pts</button>
+        <button class="grid" data-points-americas="200">200pts</button>
+        <button class="grid" data-points-asia="500">500pts</button>
+        <button class="grid" data-points-europe="500">500pts</button>
+        <button class="grid" data-points-americas="500">500pts</button>
       </section>
-      <section class="quiz-area">
-        <div class="quiz-container">
-          <p class="question">
+      <div class="quiz-container">
+        <section class="americas-fifty">
+          <p class="question question-area">
             Have you heard the latest buzz? The Mayans domesticated this native
             insect
           </p>
-          <ol class="question question-area">
+          <ul class="question answer-area">
             <li>
               bee<button class="user-response disable-button" data-key="xy">
                 A
               </button>
             </li>
             <li>
+              <button>D</button>
               fishing worm<button
                 class="user-response disable-button"
                 data-key="yx"
@@ -54,9 +55,38 @@
             <li>
               silkworm<button class="user-response" data-key="zx">C</button>
             </li>
+          </ul>
+        </section>
+        <section class="Americas-100">
+          <p class="question question-area">
+            In 1513 this Spaniard made the first recorded European exploration
+            of what is now the U.S. mainland
+          </p>
+          <ol class="question answer-area">
+            <li>
+              Christopher Columbus<button
+                class="user-response disable-button"
+                data-key="xy"
+              >
+                A
+              </button>
+            </li>
+            <li>
+              Simon Bolivar<button
+                class="user-response disable-button"
+                data-key="yx"
+              >
+                B
+              </button>
+            </li>
+            <li>
+              Ponce De Leon<button class="user-response" data-key="zx">
+                C
+              </button>
+            </li>
           </ol>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <script src="scripts.js"></script>

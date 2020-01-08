@@ -28,9 +28,11 @@ h2 {
   text-align: center;
   padding: 5%;
   font-size: medium;
+  font-weight: ;
 }
 
-.quiz-area {
+.americas-fifty,
+.americas-100 {
   display: none;
 }
 
