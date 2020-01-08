@@ -8,7 +8,7 @@ ul {
 }
 .grid {
   padding: 2%;
-  border-style: double;
+
   border-color: blue;
   text-align: center;
   margin: 2% 10% 2% 10%;
@@ -43,4 +43,10 @@ ul {
   margin: 3% 22%;
   background-color: peachpuff;
   padding: 3%;
+}
+
+.notification {
+  display: none;
+  text-align: center;
+  border-style: double;
 }

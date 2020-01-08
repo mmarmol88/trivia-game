@@ -1,35 +1,13 @@
 console.log('It is a great day to code');
-
-//Create the questions using OOP the constructor method
-// class Americas {
-//   constructor(pointValue, question, answerOne, answerTwo, correctAnswer) {
-//     this.pointValue = pointValue;
-//     this.question = question;
-//     this.answerOne = answerOne;
-//     this.answerTwo = answerTwo;
-//     this.correctAnswer = correctAnswer;
-//   }
+const scores = [];
+let correct = [];
+// let finalScore = scores.reduce(sumScores);
+// // console.log(`final-score: ${finalScore}`);
+// function sumScores(total, num) {
+//   return total + num;
 // }
 
-// const americasFifty = new Americas(
-//   50,
-//   'Have you heard the latest buzz? The Mayans domesticated this native insect',
-//   'fishing worm',
-//   'silkworm',
-//   'bee'
-// );
-// console.log(americasFifty);
-// const americasHundred = new Americas(
-//   100,
-//   'In 1513 this Spaniard made the first recorded European exploration of what is now the U.S. mainland',
-//   'Christopher Columbus',
-//   'Simon Bolivar',
-//   'Ponce De Leon'
-// );
-// console.log(americasHundred);
-// console.log(Americas);
-
-//Add event listener to question options
+//Add event listener to question options in order to create functionality to display the correct question
 const questionOptions = document.querySelector('.quiz-options');
 console.log(questionOptions);
 questionOptions.addEventListener('click', questionHandler);
@@ -37,63 +15,74 @@ questionOptions.addEventListener('click', questionHandler);
 
 function questionHandler(evt) {
   evt.preventDefault();
-  console.log(evt);
+  // console.log(evt);
+
   const questionParameter = `.${evt.target.dataset.key}`;
-  console.log(questionParameter);
+  // console.log(questionParameter);
   //provide the question and answers into the question-area
-  // const questionArea = document.querySelector('.question');
-  // questionArea.innerText = Americas[0].question;
+  //remove the user notification
+  userNotification.style.display = 'none';
+
   //Grab the quiz area to un-hide it
   const quizArea = document.querySelector(`${questionParameter}`);
-
   quizArea.style.display = 'inline';
-  console.log(quizArea);
-
-  handleAnswer();
+  // console.log(quizArea);
+  //add event listener to question buttons
+  const answerArea = document.querySelector('.quiz-container');
+  console.log(answerArea);
+  answerArea.addEventListener('click', handleAnswer);
 }
 
-//add event listener to question buttons
-const answerButton = document.querySelector('.answer-area');
-console.log(answerButton);
-answerButton.addEventListener('click', handleAnswer);
-
 function handleAnswer(evt) {
-  // evt.preventDefault();
-  console.log(evt);
+  // console.log(evt);
+  const hideQuestionArea = evt.path[3];
   if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
-    console.log(`correct answer: ${evt.target}`);
-    // console.log(evt);
-    evt.target.style.backgroundColor = 'green';
-    evt.target.style.color = 'white';
-    evt.target.innerText = 'You are correct';
-    //Attempt to hide the question area
-
-    //Add function to run once the user has picked an answer
-    // buttonDisabler();
+    const userSelection = evt.target;
+    // console.log(userSelection);
+    // console.log(`correct answer: ${evt.target}`);
+    userSelection.style.backgroundColor = 'green';
+    userSelection.style.color = 'white';
+    userSelection.innerText = 'You are correct';
+    const score = evt.target.value;
+    scores.push(score * 10);
+    console.log(score);
+    console.log(scores);
+    correct.push('true');
+    console.log(correct);
   } else if (
     evt.target.nodeName === 'BUTTON' &&
     evt.target.dataset.key !== 'xy'
   ) {
-    console.log(`wrong answer, ${evt.target}`);
+    // console.log(`wrong answer, ${evt.target}`);
     evt.target.style.backgroundColor = 'red';
     evt.target.style.color = 'white';
     evt.target.innerText = "You'll get it next time";
-    // buttonDisabler();
   }
-  //Attempt to hide the question area
+  //hide the question area
+  hideQuestionArea.style.display = 'none';
+  //reveal the userNotification
+  notifyUser();
 }
 
-// grab all user response buttons
-// const responseButtons = document.querySelector('.question-area');
+const userNotification = document.querySelector('.notification');
+console.log(userNotification);
+const comment = document.querySelector('.notify-player');
+console.log(comment);
 
-//create a function to disable the user response buttons
-// function buttonDisabler(evt) {
-//   console.log(evt);
-//   if (
-//     evt.target.className === 'disable-button' &&
-//     evt.target.target.disabled === false
-//   ) {
-//     console.log(evt.target);
-//     evt.target.disabled = true;
-//   }
-// }
+//Create function to show notification
+function notifyUser() {
+  if ((correct.length -= 1 === 'true')) {
+    console.log(correct);
+    comment.innerText = 'Great job, you are correct. Choose another question';
+  } else {
+    comment.innerText = 'Sorry, give it another try choose another question';
+  }
+  userNotification.style.display = 'block';
+}
+
+//create function to disable question option buttons on mouseUp
+questionOptions.addEventListener('onmouseup', disableButton);
+
+function disableButton(evt) {
+  console.log(evt);
+}
