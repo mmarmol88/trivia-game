@@ -16,8 +16,14 @@ questionOptions.addEventListener('click', questionHandler);
 function questionHandler(evt) {
   evt.preventDefault();
   // console.log(evt);
-
+  // console.log(evt.target);
+  const selectedButton = evt.target;
+  // const selections = Array.from(selectedButton);
+  // console.log(selections);
+  selectedButton.disabled = true;
+  console.log(evt);
   const questionParameter = `.${evt.target.dataset.key}`;
+
   // console.log(questionParameter);
   //provide the question and answers into the question-area
   //remove the user notification
@@ -32,22 +38,27 @@ function questionHandler(evt) {
   console.log(answerArea);
   answerArea.addEventListener('click', handleAnswer);
 }
+// questionOptions.addEventListener('onmouseup', disableButton);
+// function disableButton(evt) {
+//   console.log(evt.target);
+//   evt.target.disabled = true;
+// }
 
 function handleAnswer(evt) {
-  // console.log(evt);
+  console.log(evt);
   const hideQuestionArea = evt.path[3];
   if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
     const userSelection = evt.target;
     // console.log(userSelection);
     // console.log(`correct answer: ${evt.target}`);
-    userSelection.style.backgroundColor = 'green';
-    userSelection.style.color = 'white';
-    userSelection.innerText = 'You are correct';
+    // userSelection.style.backgroundColor = 'green';
+    // userSelection.style.color = 'white';
+    // userSelection.innerText = 'You are correct';
     const score = evt.target.value;
     scores.push(score * 10);
     console.log(score);
     console.log(scores);
-    correct.push('true');
+    correct = 'yes';
     console.log(correct);
   } else if (
     evt.target.nodeName === 'BUTTON' &&
@@ -57,6 +68,8 @@ function handleAnswer(evt) {
     evt.target.style.backgroundColor = 'red';
     evt.target.style.color = 'white';
     evt.target.innerText = "You'll get it next time";
+    correct = 'no';
+    console.log(correct);
   }
   //hide the question area
   hideQuestionArea.style.display = 'none';
@@ -71,18 +84,20 @@ console.log(comment);
 
 //Create function to show notification
 function notifyUser() {
-  if ((correct.length -= 1 === 'true')) {
+  if (correct === 'yes') {
     console.log(correct);
     comment.innerText = 'Great job, you are correct. Choose another question';
+    userNotification.style.borderColor = 'green';
   } else {
     comment.innerText = 'Sorry, give it another try choose another question';
+    userNotification.style.borderColor = 'red';
   }
   userNotification.style.display = 'block';
 }
 
 //create function to disable question option buttons on mouseUp
-questionOptions.addEventListener('onmouseup', disableButton);
+// questionOptions.addEventListener('onmouseup', disableButton);
 
-function disableButton(evt) {
-  console.log(evt);
-}
+// function disableButton(evt) {
+//   console.log(evt);
+// }

@@ -8,7 +8,6 @@ ul {
 }
 .grid {
   padding: 2%;
-
   border-color: blue;
   text-align: center;
   margin: 2% 10% 2% 10%;
@@ -18,9 +17,10 @@ ul {
 .quiz-options {
   margin: 3% 20%;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
+  background-color: ;
 }
 
 .user-response {
@@ -34,14 +34,23 @@ ul {
 }
 
 .americas-50,
-.americas-100 {
+.americas-100,
+.americas-200,
+.americas-500,
+.europe-50,
+.europe-100,
+.europe-200,
+.europe-500,
+.asia-50,
+.asia-100,
+.asia-200,
+.asia-500 {
   display: none;
 }
 
 .quiz-container {
   text-align: left;
-  margin: 3% 22%;
-  background-color: peachpuff;
+  margin: 3% 20%;
   padding: 3%;
 }
 
