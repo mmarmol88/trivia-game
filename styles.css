@@ -1,45 +1,82 @@
 body {
-  margin: auto;
+  background: url(images/worldmap.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+button,
+input {
+  font-family: 'Raleway', sans-serif;
+}
+main {
+  display: block;
+  margin: 0 auto;
+}
+.notify-player {
+  text-align: center;
+  font-weight: bold;
+}
+
+p {
+  text-align: left;
+  font-size: x-large;
+  padding: 0 10%;
+  font-family: 'Raleway', sans-serif;
 }
 h1,
 h2 {
-  text-align: left;
-  margin: 3% 22%;
+  text-align: center;
+  /* margin: 3% 22%; */
   font-family: 'Raleway', sans-serif;
-  font-weight: lighter;
+  font-weight: 700;
+  font-size: xx-large;
 }
 ul {
   list-style: none;
+
+  text-align: justify;
 }
 .grid {
-  padding: 2%;
-  border-color: blue;
+  padding: 1%;
+  border-color: rgb(228, 233, 237);
   text-align: center;
-  margin: 2% 10% 2% 10%;
-  font-size: small;
+  margin: 2% 3%;
+  font-size: medium;
   font-family: 'Raleway', sans-serif;
+  font-weight: 700;
 }
-
-.quiz-options {
-  margin: 3% 20%;
+/* section {
+  margin: 1% 5%;
+} */
+.jeopardy {
+  margin: 1% 20%;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  background-color: ;
+  visibility: hidden;
+  padding: 5%;
+  background-color: rgba(84, 165, 209, 0.9);
 }
 
 .user-response {
   margin: 0.5% 2%;
 }
-
+.jeopardy-header {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
 .continent {
   text-align: center;
-  padding: 5%;
   font-size: medium;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
+  padding: 5% 10%;
+  margin: 3%;
+  color: white;
+  background-color: rgb(108, 122, 137);
 }
 
 .americas-50,
@@ -56,23 +93,47 @@ ul {
 .asia-500 {
   display: none;
   font-family: 'Raleway', sans-serif;
+  padding: 2%;
 }
-
 .quiz-container {
-  text-align: left;
+  background-color: rgba(84, 165, 209, 0.9);
   margin: 3% 20%;
-  padding: 1%;
 }
 
 .notification {
   display: none;
   text-align: center;
   border-style: double;
-  /* margin: 2%; */
 }
 
 .check-score,
 .notify-player {
   margin: 2%;
   padding: 1%;
+}
+
+.user-form {
+  text-align: center;
+}
+.start {
+  margin: 0 2%;
+  border-radius: 0%;
+  border-style: dashed;
+  background-color: rgb(238, 192, 107);
+}
+
+.welcome {
+  background-color: rgba(84, 165, 209, 0.9);
+  padding: 5% 10%;
+  margin: 10%;
+  display: block;
+}
+
+.main-p {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+.user-input,
+.start {
+  padding: 2%;
 }

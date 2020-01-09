@@ -1,8 +1,21 @@
 console.log('It is a great day to code');
 const scores = [0];
 let correct = [];
-// // console.log(`final-score: ${finalScore}`);
-// let totalScore = scores.reduce(sumScores);
+const welcome = document.querySelector('.welcome');
+const jeopardyArea = document.querySelector('.jeopardy');
+
+//Add functionality that stores name input value and adds event-listener to start button
+let userInput;
+
+const startButton = document.querySelector('.start');
+startButton.addEventListener('click', startsGame);
+function startsGame(evt) {
+  evt.preventDefault();
+  userInput = document.querySelector('.user-input').value;
+  console.log(userInput);
+  welcome.style.display = 'none';
+  jeopardyArea.style.visibility = 'visible';
+}
 
 //add event-listener to check-score
 const checkScore = document.querySelector('.check-score');
@@ -19,15 +32,12 @@ function sumScores(total, num) {
 
 //Add event listener to question options in order to create functionality to display the correct question
 const questionOptions = document.querySelectorAll('.grid');
-console.log(questionOptions);
 const gridArray = Array.from(questionOptions);
-console.log(gridArray);
 //add event listener to each button
 function createListener() {
   //create a loop function to add event listener to the individual buttons
   gridArray.forEach(item => {
     item.addEventListener('click', questionHandler);
-    console.log(item);
   });
 }
 createListener();
@@ -47,7 +57,6 @@ function questionHandler(evt) {
   //provide the question and answers into the question-area
   const quizArea = document.querySelector(`${questionParameter}`);
   quizArea.style.display = 'inline';
-  console.log(`quiz-area ${quizArea}`);
   quizArea.addEventListener('click', handleAnswer);
 }
 
@@ -82,7 +91,7 @@ function notifyUser() {
   if (correct === 'yes') {
     comment.innerText =
       'Great job! you are correct, go ahead try another question';
-    userNotification.style.borderColor = 'green';
+    userNotification.style.borderColor = 'rgb(238, 192, 107)';
   } else {
     comment.innerText = 'Not quite right but try another question';
     userNotification.style.borderColor = 'red';

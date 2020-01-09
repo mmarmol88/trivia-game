@@ -8,17 +8,28 @@
       href="https://fonts.googleapis.com/css?family=Raleway:400,600,900|Space+Mono:400,700&display=swap"
       rel="stylesheet"
     />
+
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
-      <h1>History Trivia</h1>
+      <h1></h1>
     </header>
 
     <main>
-      <h2>Choose wisely to test your History knowledge</h2>
-      <section class="quiz-options">
+      <section class="welcome">
+        <h1>Welcome to History Trivia</h1>
+        <p class="main-p">
+          Are you a major history enthusiast? If so this game is perfect for
+          you! To get started write your name and press the button.
+        </p>
+        <form class="user-form">
+        <input class="user-input" placeholder="your name here"></input><button class="start">START</button>
+        </form>
+      </section>
+      <section class="jeopardy">
+        <h2 class="jeopardy-header">Choose wisely to test your History knowledge</h2>
         <div class="continent">Asia</div>
         <div class="continent">Europe</div>
         <div class="continent">The Americas</div>
@@ -35,6 +46,7 @@
         <button class="grid" data-key="europe-500">500pts</button>
         <button class="grid" data-key="americas-500">500pts</button>
       </section>
+      
       <div class="quiz-container">
         <section class="americas-50">
           <p>
