@@ -1,6 +1,7 @@
 ##History Trivia  
 **A trivia game for history enthusiasts everywhere who have long commutes and some free time.**  
 Intended user: history lovers ages 13+.  
+![history-trivia](https://user-images.githubusercontent.com/57410699/72113283-fcf92800-330d-11ea-8d2b-0cb546d0a7a2.png)  
 ####About This Game  
 This trivia game was created for all history enthusiasts (myself included) using HTML, CSS, and JavaScript. The game has a format similar to jeopardy, _no lightning rounds_ included. The user chooses the question category, point value, and answer. Then they are notified wether they are correct or not and can choose to restart the game of keep going. All questions used were taken from the trivia questions reference below.
 **URL**
@@ -20,7 +21,7 @@ An HTML page with a Welcome page and start button that displays the game area. F
 **Gold:**
 An HTML with multi-player, randomized questions and timed game functionality in addition to the functionalities of the bronze and silver versions.
 
-####Resources and Documentation Used
+####Resources Used
 
 - [Trivia Questions](http://jservice.io/popular/530)
 
