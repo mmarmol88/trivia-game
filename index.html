@@ -14,12 +14,13 @@
   </head>
   <body>
     <header>
-      <h1></h1>
+      <p class="banner">A small body of determined spirits fired by an unquenchable faith in their mission can alter the course of history.</p>
+      <p class="quote">-Mahatma Gandhi</p>
     </header>
 
     <main>
       <section class="welcome">
-        <h1>Welcome to History Trivia</h1>
+        <h1 class="welcome-header">Welcome to History Trivia</h1>
         <p class="main-p">
           Are you a major history enthusiast? If so this game is perfect for
           you! To get started write your name and press the button.
@@ -33,21 +34,21 @@
         <div class="continent">Asia</div>
         <div class="continent">Europe</div>
         <div class="continent">The Americas</div>
-        <button class="grid" data-key="asia-50">50pts</button>
-        <button class="grid" data-key="europe-50">50pts</button>
-        <button class="grid" data-key="americas-50">50pts</button>
-        <button class="grid" data-key="asia-100">100pts</button>
-        <button class="grid" data-key="europe-100">100pts</button>
-        <button class="grid" data-key="americas-100">100pts</button>
-        <button class="grid" data-key="asia-200">200pts</button>
-        <button class="grid" data-key="europe-200">200pts</button>
-        <button class="grid" data-key="americas-200">200pts</button>
-        <button class="grid" data-key="asia-500">500pts</button>
-        <button class="grid" data-key="europe-500">500pts</button>
-        <button class="grid" data-key="americas-500">500pts</button>
+        <button class="grid" href= "#container" data-key="asia-50">50</button>
+        <button class="grid" data-key="europe-50">50</button>
+        <button href="#container" class="grid" data-key="americas-50">50</button>
+        <button class="grid" data-key="asia-100">100</button>
+        <button class="grid" data-key="europe-100">100</button>
+        <button class="grid" data-key="americas-100">100</button>
+        <button class="grid" data-key="asia-200">200</button>
+        <button class="grid" data-key="europe-200">200</button>
+        <button class="grid" data-key="americas-200">200</button>
+        <button class="grid" data-key="asia-500">500</button>
+        <button class="grid" data-key="europe-500">500</button>
+        <button class="grid" data-key="americas-500">500</button>
       </section>
       
-      <div class="quiz-container">
+      <div id='container' class="quiz-container">
         <section class="americas-50">
           <p>
             Have you heard the latest buzz? The Mayans domesticated this native
@@ -221,6 +222,7 @@
         <section class="notification">
           <p class="notify-player"></p>
           <button class="check-score">Check My Score</button>
+          <button class="restart">Start Over</button>
         </section>
       </div>
     </main>

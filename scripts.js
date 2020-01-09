@@ -1,8 +1,11 @@
 console.log('It is a great day to code');
-const scores = [0];
+let scores = [0];
 let correct = [];
+let usedButtons = [];
 const welcome = document.querySelector('.welcome');
 const jeopardyArea = document.querySelector('.jeopardy');
+const userNotification = document.querySelector('.notification');
+const comment = document.querySelector('.notify-player');
 
 //Add functionality that stores name input value and adds event-listener to start button
 let userInput;
@@ -12,30 +15,32 @@ startButton.addEventListener('click', startsGame);
 function startsGame(evt) {
   evt.preventDefault();
   userInput = document.querySelector('.user-input').value;
-  console.log(userInput);
   welcome.style.display = 'none';
-  jeopardyArea.style.visibility = 'visible';
+  jeopardyArea.style.display = 'grid';
+  jeopardyArea.style.gridTemplateRows = '0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr';
+  jeopardyArea.style.gridTemplateColumns = '1fr 1fr 1fr';
 }
 
 //add event-listener to check-score
 const checkScore = document.querySelector('.check-score');
 checkScore.addEventListener('click', scoreChecker);
+
 function scoreChecker() {
   let totalScore = scores.reduce(sumScores);
-  console.log(totalScore);
-  comment.innerText = `You have ${totalScore} points so far, keep at it`;
+  comment.innerHTML = `${userInput ||
+    'Buddy'}: You have a total of <span>${totalScore}</span> points so far, keep at it!`;
+  checkScore.style.backgroundColor = 'white';
+  checkScore.style.color = 'black';
   return totalScore;
 }
 function sumScores(total, num) {
   return (total += num);
 }
-//Create a function that focuses on the quiz-container
-// const quizContainer = document.querySelector('.quiz-container');
-// function quizContainerFocus() {
-//   quizContainer.focus();
-// }
 
-//Add event listener to question options in order to create functionality to display the correct question
+//Add event listener to the grid options in order to create functionality to display the correct question
+const answerButtons = document.querySelectorAll('.user-response');
+const answerArray = Array.from(answerButtons);
+
 const questionOptions = document.querySelectorAll('.grid');
 const gridArray = Array.from(questionOptions);
 //add event listener to each button
@@ -43,74 +48,88 @@ function createListener() {
   //create a loop function to add event listener to the individual buttons
   gridArray.forEach(item => {
     item.addEventListener('click', questionHandler);
+    // item.addEventListener('onmouseup', quizAreaFocus);
   });
 }
-createListener();
 
+createListener();
 //define callback
 function questionHandler(evt) {
   evt.preventDefault();
-  // console.log(evt);
-  // console.log(evt.target);
-  const selectedButton = evt.target;
+  let selectedButton = evt.target;
+  usedButtons.push(selectedButton);
   selectedButton.disabled = true;
-  // console.log(evt.target);
+  selectedButton.style.backgroundColor = 'rgb(0, 51, 102)';
+
   const questionParameter = `.${evt.target.dataset.key}`;
-  console.log(questionParameter);
+
   //remove the user notification
   userNotification.style.display = 'none';
   //Grab the quiz area to un-hide it
-  //provide the question and answers into the question-area
   const quizArea = document.querySelector(questionParameter);
-  console.log(quizArea);
-  function quizAreaFocus() {
-    quizArea.focus();
+
+  //remove event-listener from grid buttons
+  function removeListener() {
+    gridArray.forEach(item => {
+      item.removeEventListener('click', questionHandler);
+    });
   }
-  quizAreaFocus();
+  removeListener();
+
   quizArea.style.display = 'inline';
-  quizArea.addEventListener('click', handleAnswer);
+  quizArea.scrollIntoView();
+  function addListener() {
+    answerArray.forEach(item => {
+      item.addEventListener('click', handleAnswer);
+    });
+  }
+  addListener();
 }
 
 function handleAnswer(evt) {
   //check if user answered
-  console.log(evt);
   const hideQuestionArea = evt.path[3];
   if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
     const score = evt.target.value;
     scores.push(score * 10);
     correct = 'yes';
-  } else if (
-    evt.target.className === 'user-response' &&
-    evt.target.dataset.key !== 'xy'
-  ) {
-    correct = 'no';
-  } else if (evt.target.className === 'grid') {
-    console.log(evt);
-    correct = 'neutral';
-    console.log(correct);
   } else {
-    //Jerrica suggested to use to exit function and stop event listener
-    return;
+    correct = 'no';
   }
-
+  //Add event listener to grid items again
+  createListener();
   //hide the question area
   hideQuestionArea.style.display = 'none';
   //reveal the userNotification
   notifyUser();
 }
 
-const userNotification = document.querySelector('.notification');
-const comment = document.querySelector('.notify-player');
-
 //Create function to show notification
 function notifyUser() {
   if (correct === 'yes') {
     comment.innerText =
       'Great job! you are correct, go ahead try another question';
-    userNotification.style.borderColor = 'rgb(238, 192, 107)';
+    userNotification.style.borderColor = 'rgb(0,102,153)';
   } else {
     comment.innerText = 'Not quite right but try another question';
-    userNotification.style.borderColor = 'red';
+    userNotification.style.borderColor = 'rgb(255,153,0)';
   }
+  checkScore.style.backgroundColor = 'rgb(255, 153, 0)';
+  checkScore.style.color = 'rgb(228, 233, 237)';
   userNotification.style.display = 'block';
+}
+
+//restart functionality
+const restartButton = document.querySelector('.restart');
+//add event listener
+restartButton.addEventListener('click', startOver);
+function startOver(evt) {
+  evt.preventDefault;
+  usedButtons.forEach(item => {
+    item.disabled = false;
+    item.style.backgroundColor = 'rgb(255, 153, 0)';
+  });
+  comment.innerText = `Go ahead ${userInput}, choose another question`;
+  //score reset
+  scores = [0];
 }

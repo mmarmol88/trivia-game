@@ -5,6 +5,10 @@ body {
   background-size: cover;
   position: relative;
 }
+button {
+  background-color: rgb(255, 153, 0);
+  color: rgb(228, 233, 237);
+}
 button,
 input {
   font-family: 'Raleway', sans-serif;
@@ -18,11 +22,32 @@ main {
   font-weight: bold;
 }
 
+header {
+  padding: 0.5% 10%;
+  background-color: rgba(0, 51, 102, 0.7);
+  margin: 1%;
+}
+.quote {
+  color: rgb(228, 233, 237);
+  text-align: left;
+  font-size: 100%;
+}
+.banner {
+  text-align: justify;
+  color: rgb(255, 153, 0);
+  font-weight: bolder;
+  font-size: 150%;
+}
+
+.welcome-header {
+  color: rgb(228, 233, 237);
+}
 p {
   text-align: left;
   font-size: x-large;
   padding: 0 10%;
   font-family: 'Raleway', sans-serif;
+  color: rgb(0, 51, 102);
 }
 h1,
 h2 {
@@ -31,14 +56,20 @@ h2 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: xx-large;
+  color: rgb(0, 51, 102);
 }
 ul {
   list-style: none;
-
+  color: rgb(0, 51, 102);
   text-align: justify;
+}
+button.grid {
+  color: whitesmoke;
 }
 .grid {
   padding: 1%;
+
+  background-color: rgb(255, 153, 0);
   border-color: rgb(228, 233, 237);
   text-align: center;
   margin: 2% 3%;
@@ -51,13 +82,10 @@ ul {
 } */
 .jeopardy {
   margin: 1% 20%;
-  display: grid;
-  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: none;
   justify-content: space-between;
-  visibility: hidden;
-  padding: 5%;
-  background-color: rgba(84, 165, 209, 0.9);
+  padding: 1%;
+  background-color: rgba(84, 165, 209, 0.7);
 }
 
 .user-response {
@@ -75,8 +103,8 @@ ul {
   text-transform: uppercase;
   padding: 5% 10%;
   margin: 3%;
-  color: white;
-  background-color: rgb(108, 122, 137);
+  color: rgb(0, 51, 102);
+  background-color: whitesmoke;
 }
 
 .americas-50,
@@ -94,9 +122,10 @@ ul {
   display: none;
   font-family: 'Raleway', sans-serif;
   padding: 2%;
+  font-weight: 600;
 }
 .quiz-container {
-  background-color: rgba(84, 165, 209, 0.9);
+  background-color: rgba(84, 165, 209, 0.7);
   margin: 3% 20%;
 }
 
@@ -107,6 +136,7 @@ ul {
 }
 
 .check-score,
+.restart,
 .notify-player {
   margin: 2%;
   padding: 1%;
@@ -118,14 +148,15 @@ ul {
 .start {
   margin: 0 2%;
   border-radius: 0%;
-  border-style: dashed;
-  background-color: rgb(238, 192, 107);
+  border-color: rgb(228, 233, 237);
+  border-style: doubled;
+  background-color: rgb(255, 153, 0);
 }
 
 .welcome {
   background-color: rgba(84, 165, 209, 0.9);
   padding: 5% 10%;
-  margin: 10%;
+  margin: 0% 10%;
   display: block;
 }
 
@@ -136,4 +167,11 @@ ul {
 .user-input,
 .start {
   padding: 2%;
+}
+.comment {
+}
+span {
+  color: rgb(255, 153, 0);
+  background-color: rgba(0, 51, 102, 0.7);
+  padding: 1%;
 }
