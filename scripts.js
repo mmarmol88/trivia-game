@@ -29,6 +29,11 @@ function scoreChecker() {
 function sumScores(total, num) {
   return (total += num);
 }
+//Create a function that focuses on the quiz-container
+// const quizContainer = document.querySelector('.quiz-container');
+// function quizContainerFocus() {
+//   quizContainer.focus();
+// }
 
 //Add event listener to question options in order to create functionality to display the correct question
 const questionOptions = document.querySelectorAll('.grid');
@@ -51,32 +56,43 @@ function questionHandler(evt) {
   selectedButton.disabled = true;
   // console.log(evt.target);
   const questionParameter = `.${evt.target.dataset.key}`;
+  console.log(questionParameter);
   //remove the user notification
   userNotification.style.display = 'none';
   //Grab the quiz area to un-hide it
   //provide the question and answers into the question-area
-  const quizArea = document.querySelector(`${questionParameter}`);
+  const quizArea = document.querySelector(questionParameter);
+  console.log(quizArea);
+  function quizAreaFocus() {
+    quizArea.focus();
+  }
+  quizAreaFocus();
   quizArea.style.display = 'inline';
   quizArea.addEventListener('click', handleAnswer);
 }
 
 function handleAnswer(evt) {
+  //check if user answered
   console.log(evt);
   const hideQuestionArea = evt.path[3];
-  console.log(evt);
   if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
     const score = evt.target.value;
     scores.push(score * 10);
     correct = 'yes';
   } else if (
-    evt.target.nodeName === 'BUTTON' &&
+    evt.target.className === 'user-response' &&
     evt.target.dataset.key !== 'xy'
   ) {
     correct = 'no';
+  } else if (evt.target.className === 'grid') {
+    console.log(evt);
+    correct = 'neutral';
+    console.log(correct);
   } else {
     //Jerrica suggested to use to exit function and stop event listener
     return;
   }
+
   //hide the question area
   hideQuestionArea.style.display = 'none';
   //reveal the userNotification
