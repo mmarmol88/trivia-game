@@ -107,11 +107,12 @@ function handleAnswer(evt) {
 //Create function to show notification
 function notifyUser() {
   if (correct === 'yes') {
-    comment.innerText =
-      'Great job! you are correct, go ahead try another question';
+    comment.innerHTML =
+      'Great job! you are <span>correct</span>, go ahead try another question';
     userNotification.style.borderColor = 'rgb(0,102,153)';
   } else {
-    comment.innerText = 'Not quite right but try another question';
+    comment.innerHTML =
+      'Oh no<span>Sorry</span>, not quite right but try another question';
     userNotification.style.borderColor = 'rgb(255,153,0)';
   }
   checkScore.style.backgroundColor = 'rgb(255, 153, 0)';
