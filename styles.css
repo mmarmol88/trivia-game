@@ -8,18 +8,22 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
 header {
   order: 0;
 }
+
 button,
 .grid,
 .start-over {
   background-color: rgb(255, 153, 0);
 }
+
 .jeopardy,
 .welcome {
   background-color: rgba(84, 165, 209, 0.9);
 }
+
 span,
 .footer,
 header {
@@ -35,10 +39,12 @@ h2,
 .inline {
   font-family: 'Raleway', sans-serif;
 }
+
 main {
   display: block;
   order: 1;
 }
+
 .notify-player {
   font-weight: bold;
 }
@@ -48,7 +54,6 @@ footer {
   padding: 0.5% 0%;
 }
 
-,
 p {
   text-align: left;
 }
@@ -57,22 +62,26 @@ p {
   font-size: 100%;
   text-align: center;
 }
+
 .banner {
   color: rgb(255, 153, 0);
   font-weight: bolder;
   font-size: 150%;
 }
+
 p {
   font-size: x-large;
   padding: 0 10%;
   color: rgb(0, 51, 102);
 }
+
 h1,
 h2 {
   font-weight: 700;
   font-size: xx-large;
   color: rgb(0, 51, 102);
 }
+
 ul {
   list-style: none;
   color: rgb(0, 51, 102);
@@ -80,12 +89,14 @@ ul {
   font-weight: 600;
   font-size: 140%;
 }
+
 button,
 .quote,
 .welcome-header,
 .footer-content {
   color: rgb(228, 233, 237);
 }
+
 .grid {
   border-color: rgb(228, 233, 237);
   margin: 2% 3%;
@@ -93,6 +104,7 @@ button,
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
 }
+
 .jeopardy {
   margin: 3% 18%;
   padding: 0.5%;
@@ -102,6 +114,7 @@ button,
   grid-column: 1 / span 3;
   grid-row: 1;
 }
+
 .continent {
   font-size: medium;
   font-weight: 600;
@@ -111,6 +124,7 @@ button,
   color: rgb(0, 51, 102);
   background-color: rgb(228, 233, 237);
 }
+
 .americas-50,
 .americas-100,
 .americas-200,
@@ -136,23 +150,27 @@ button,
   background-color: rgba(84, 165, 209, 0.8);
   margin: 3% 18%;
 }
+
 .check-score,
 .restart,
 .notify-player {
   margin: 2%;
   padding: 1%;
 }
+
 .start {
   margin: 0 2%;
   padding: 1%;
   border-color: rgb(228, 233, 237);
   border-style: double;
 }
+
 .welcome {
   padding: 5% 10%;
   margin: 8%;
   display: block;
 }
+
 .main-p,
 .footer-content,
 h1,
@@ -165,10 +183,12 @@ p,
 .user-form {
   text-align: center;
 }
+
 .user-input,
 .start {
   padding: 2%;
 }
+
 span {
   color: rgb(238, 159, 40);
   padding: 0.5%;
@@ -178,19 +198,23 @@ span {
 .jeopardy {
   display: none;
 }
+
 footer {
   position: static;
   bottom: 0;
   margin-top: 13%;
   order: 2;
 }
+
 .check-score,
 .restart {
   padding: 3%;
 }
+
 li {
   margin: 0.5%;
 }
+
 .question {
   font-weight: 800;
 }
@@ -204,6 +228,7 @@ li {
   display: inline;
   font-size: 60%;
 }
+
 a:hover {
   color: rgb(228, 233, 237);
 }
@@ -212,6 +237,7 @@ a {
   color: rgb(238, 159, 40);
   text-decoration: none;
 }
+
 a:visited {
   text-decoration: underline;
 }
