@@ -2,67 +2,65 @@ body {
   background: url(images/worldmap.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
 }
-button {
-  background-color: rgb(238, 159, 40);
-  color: rgb(228, 233, 237);
-}
-
 button,
-input {
+.grid,
+.start-over {
+  background-color: rgb(255, 153, 0);
+}
+.jeopardy,
+.welcome {
+  background-color: rgba(84, 165, 209, 0.9);
+}
+span,
+.footer,
+header {
+  background-color: rgba(0, 51, 102, 0.8);
+}
+button,
+input,
+p,
+h1,
+h2,
+.continent {
   font-family: 'Raleway', sans-serif;
 }
 main {
   display: block;
-  margin: 0 auto;
 }
 .notify-player {
-  text-align: center;
   font-weight: bold;
 }
 
 header,
-footer {
-  padding: 0.5% 10%;
-  background-color: rgba(0, 51, 102, 0.7);
-  margin: 1%;
-  text-align: center;
-}
 .footer {
-  color: rgb(228, 233, 237);
-  display: inline;
-  padding: 2%;
+  padding: 0.5% 10%;
 }
-.quote {
-  color: rgb(228, 233, 237);
+
+.footer {
+  bottom: 0;
+}
+.quote,
+p {
   text-align: left;
+}
+
+.quote {
   font-size: 100%;
 }
 .banner {
-  text-align: center;
-  color: rgb(238, 159, 40);
+  color: rgb(255, 153, 0);
   font-weight: bolder;
   font-size: 150%;
-  letter-spacing: 20%;
-}
-
-.welcome-header {
-  color: rgb(228, 233, 237);
 }
 p {
-  text-align: left;
   font-size: x-large;
   padding: 0 10%;
-  font-family: 'Raleway', sans-serif;
   color: rgb(0, 51, 102);
 }
 h1,
 h2 {
-  text-align: center;
-  /* margin: 3% 22%; */
-  font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: xx-large;
   color: rgb(0, 51, 102);
@@ -70,49 +68,39 @@ h2 {
 ul {
   list-style: none;
   color: rgb(0, 51, 102);
-  text-align: justify;
+  text-align: left;
 }
-button.grid {
-  color: whitesmoke;
+button,
+.quote,
+.welcome-header,
+.footer-content {
+  color: rgb(228, 233, 237);
 }
 .grid {
-  padding: 1%;
-  background-color: rgb(238, 159, 40);
   border-color: rgb(228, 233, 237);
-  text-align: center;
   margin: 2% 3%;
   font-size: medium;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
 }
-
 .jeopardy {
-  margin: 1% 20%;
-  display: none;
-  justify-content: space-between;
-  padding: 1%;
-  background-color: rgba(84, 165, 209, 0.7);
+  margin: 3% 18%;
+  padding: 0.5%;
 }
 
-.user-response {
-  margin: 0.5% 2%;
-}
 .jeopardy-header {
   grid-column: 1 / span 3;
   grid-row: 1;
 }
 .continent {
-  text-align: center;
   font-size: medium;
-  font-family: 'Raleway', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 5% 10%;
+  padding: 5%;
   margin: 3%;
   color: rgb(0, 51, 102);
-  background-color: whitesmoke;
+  background-color: rgb(228, 233, 237);
 }
-
 .americas-50,
 .americas-100,
 .americas-200,
@@ -127,57 +115,86 @@ button.grid {
 .asia-500 {
   display: none;
   font-family: 'Raleway', sans-serif;
-  padding: 2%;
   font-weight: 600;
+  padding: 15%;
 }
 .quiz-container {
-  background-color: rgba(84, 165, 209, 0.7);
-  margin: 3% 20%;
+  margin: 3% 18%;
+  background-color: rgba(84, 165, 209, 0.8);
 }
 
 .notification {
-  display: none;
-  text-align: center;
   border-style: double;
 }
-
 .check-score,
 .restart,
 .notify-player {
   margin: 2%;
   padding: 1%;
 }
-
-.user-form {
-  text-align: center;
-}
 .start {
   margin: 0 2%;
-  border-radius: 0%;
+  padding: 1%;
   border-color: rgb(228, 233, 237);
   border-style: double;
-  background-color: rgb(238, 159, 40);
 }
-
 .welcome {
-  background-color: rgba(84, 165, 209, 0.9);
   padding: 5% 10%;
-  margin: 0% 10%;
+  margin: 8%;
   display: block;
 }
-
-.main-p {
+.main-p,
+.footer-content,
+h1,
+h2,
+button,
+.continent,
+p,
+.notify-player,
+.notification,
+.user-form {
   text-align: center;
-  font-family: 'Raleway', sans-serif;
 }
 .user-input,
 .start {
   padding: 2%;
 }
-.comment {
-}
 span {
   color: rgb(238, 159, 40);
-  background-color: rgba(0, 51, 102, 0.7);
+  padding: 0.5%;
+}
+.footer-content {
+  list-style: none;
+  margin: 0 auto;
+  display: inline;
+  padding: 1%;
+  text-align: left;
+}
+.notification,
+.jeopardy {
+  display: none;
+}
+footer {
+  bottom: -45px;
+  width: 100%;
+  margin: 0 auto;
+}
+.check-score,
+.restart {
+  padding: 3%;
+}
+li {
+  margin: 0.5%;
+}
+.question {
+  font-weight: 800;
+}
+
+.answers {
+  font-weight: 600;
+  font-size: 140%;
+}
+.user-response {
+  margin: 1%;
   padding: 1%;
 }

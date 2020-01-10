@@ -57,13 +57,13 @@
         <button class="grid" data-key="americas-500">500</button>
       </div>
 
-      <div id="container" class="quiz-container">
+      <div class="quiz-container">
         <div class="americas-50">
-          <p>
+          <p class="question">
             Have you heard the latest buzz? The Mayans domesticated this native
             insect
           </p>
-          <ul>
+          <ul class="answers">
             <li>
               <button value="5" data-key="xy" class="user-response">A</button
               >The bee
@@ -73,11 +73,11 @@
           </ul>
         </div>
         <div class="americas-100">
-          <p>
+          <p class="question">
             In 1513 this Spaniard made the first recorded European exploration
             of what is now the U.S. mainland
           </p>
-          <ul>
+          <ul class="answers">
             <li>
               <button class="user-response">A</button>Christopher Columbus
             </li>
@@ -89,11 +89,11 @@
           </ul>
         </div>
         <div class="americas-200">
-          <p>
+          <p class="question">
             In 1992 Pres. Alberto Fujimori suspended this country's constitution
             & dissolved the legislature
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>Argentina</li>
             <li>
               <button value="20" data-key="xy" class="user-response">B</button
@@ -103,11 +103,11 @@
           </ul>
         </div>
         <div class="americas-500">
-          <p>
+          <p class="question">
             This battleship on which the WWII Japanese surrender terms were
             signed saw combat during the Gulf War
           </p>
-          <ul>
+          <ul class="answers">
             <li>
               <button value="50" data-key="xy" class="user-response">A</button
               >U.S.S Missouri
@@ -117,11 +117,11 @@
           </ul>
         </div>
         <div class="europe-50">
-          <p>
+          <p class="question">
             European production of this fiber began after 2 monks smuggled some
             worms out of China c. 550
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>Satin</li>
             <li><button class="user-response">B</button>Linen</li>
             <li>
@@ -131,11 +131,11 @@
           </ul>
         </div>
         <div class="europe-100">
-          <p>
+          <p class="question">
             4 days after this battle, Napoleon signed his 2nd -- & final --
             abdication
           </p>
-          <ul>
+          <ul class="answers">
             <li>
               <button value="10" data-key="xy" class="user-response">A</button
               >Battle of Waterloo
@@ -145,13 +145,15 @@
           </ul>
         </div>
         <div class="europe-200">
-          <p>
+          <p class="question">
             A civil war in Paris during his youth convinced this king to build
             his palace at Versailles
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>Charles XVI</li>
-            <li><button class="user-response">B</button>Henry VI</li>
+            <li class="answers">
+              <button class="user-response">B</button>Henry VI
+            </li>
             <li>
               <button value="20" data-key="xy" class="user-response">c</button
               >Louis XIV
@@ -159,11 +161,11 @@
           </ul>
         </div>
         <div class="europe-500">
-          <p>
+          <p class="question">
             This war was thought to be mythical until late 19th century
             excavations proved it really occurred
           </p>
-          <ul>
+          <ul class="answers">
             <li>
               <button class="user-response">A</button>The Peloponnesian War
             </li>
@@ -174,10 +176,10 @@
           </ul>
         </div>
         <div class="asia-50">
-          <p>
+          <p class="question">
             In a 1918 treaty, this country gave up Ukraine but soon recovered it
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>China</li>
             <li><button class="user-response">B</button>India</li>
             <li>
@@ -187,11 +189,11 @@
           </ul>
         </div>
         <div class="asia-100">
-          <p>
+          <p class="question">
             The Chinese plan called the Great Leap Forward was initiated by this
             leader in 1958
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>Dong Biwu</li>
             <li>
               <button value="10" data-key="xy" class="user-response">B</button
@@ -201,11 +203,11 @@
           </ul>
         </div>
         <div class="asia-200">
-          <p>
+          <p class="question">
             The Geneva Accords of 1954 split this SE Asian country in 2 at 17
             degrees North latitude
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>Korea</li>
             <li>
               <button value="20" data-key="xy" class="user-response">B</button
@@ -214,11 +216,11 @@
           </ul>
         </div>
         <div class="asia-500">
-          <p>
+          <p class="question">
             In 1910 Korea was annexed by this country that held it for the next
             35 years
           </p>
-          <ul>
+          <ul class="answers">
             <li><button class="user-response">A</button>China</li>
             <li><button class="user-response">B</button>Vietnam</li>
             <li>
@@ -235,13 +237,12 @@
         </div>
       </div>
     </main>
-    <footer>
-      <ul class="footer">
-        <li class="footer">From One Trivia Enthusiast to Another</li>
-        <li class="footer">@ 2020</li>
+    <footer class="footer">
+      <ul class="footer-content">
+        <li>From One Trivia Enthusiast to Another</li>
+        <li>@ 2020</li>
       </ul>
     </footer>
-
     <script src="scripts.js"></script>
   </body>
 </html>

@@ -9,10 +9,10 @@ const comment = document.querySelector('.notify-player');
 
 //Add functionality that stores name input value and adds event-listener to start button
 let userInput;
-
 const startButton = document.querySelector('.start');
 startButton.addEventListener('click', startsGame);
 function startsGame(evt) {
+  console.log(evt.target);
   evt.preventDefault();
   userInput = document.querySelector('.user-input').value;
   welcome.style.display = 'none';
@@ -23,12 +23,13 @@ function startsGame(evt) {
 
 //add event-listener to check-score
 const checkScore = document.querySelector('.check-score');
+console.log(checkScore);
 checkScore.addEventListener('click', scoreChecker);
 
 function scoreChecker() {
   let totalScore = scores.reduce(sumScores);
   comment.innerHTML = `${userInput ||
-    'Buddy'}: You have a total of <span>${totalScore}</span> points so far, keep at it!`;
+    'Buddy'}: You have a total of <span>${totalScore}</span> points so far, <br>keep at it!`;
   checkScore.style.backgroundColor = 'white';
   checkScore.style.color = 'black';
   return totalScore;
@@ -39,8 +40,8 @@ function sumScores(total, num) {
 
 //Add event listener to the grid options in order to create functionality to display the correct question
 const answerButtons = document.querySelectorAll('.user-response');
+console.log(answerButtons);
 const answerArray = Array.from(answerButtons);
-
 const questionOptions = document.querySelectorAll('.grid');
 const gridArray = Array.from(questionOptions);
 //add event listener to each button
@@ -55,6 +56,7 @@ function createListener() {
 createListener();
 //define callback
 function questionHandler(evt) {
+  console.log(evt.target);
   evt.preventDefault();
   let selectedButton = evt.target;
   usedButtons.push(selectedButton);
@@ -67,6 +69,7 @@ function questionHandler(evt) {
   userNotification.style.display = 'none';
   //Grab the quiz area to un-hide it
   const quizArea = document.querySelector(questionParameter);
+  console.log(quizArea);
 
   //remove event-listener from grid buttons
   function removeListener() {
@@ -78,22 +81,39 @@ function questionHandler(evt) {
 
   quizArea.style.display = 'inline';
   quizArea.scrollIntoView();
-  function addListener() {
-    answerArray.forEach(item => {
-      item.addEventListener('click', handleAnswer);
-    });
-  }
-  addListener();
+  // function addListener() {
+  //   answerArray.forEach(item => {
+  //     item.addEventListener('click', handleAnswer);
+  //   });
+  // }
+  // addListener();
 }
+function addListener() {
+  answerArray.forEach(item => {
+    item.addEventListener('click', handleAnswer);
+  });
+}
+addListener();
+
+// const addListener = function() {
+//   answerArray.forEach(item => {
+//     item.addEventListener('click', handleAnswer);
+//   });
+// };
 
 function handleAnswer(evt) {
-  //check if user answered
+  console.log(evt);
+  //check if answer correct
   const hideQuestionArea = evt.path[3];
   if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
+    console.log(evt.target);
     const score = evt.target.value;
     scores.push(score * 10);
     correct = 'yes';
-  } else {
+  } else if (
+    evt.target.nodeName === 'BUTTON' &&
+    evt.target.dataset.key !== 'xy'
+  ) {
     correct = 'no';
   }
   //Add event listener to grid items again
@@ -112,7 +132,7 @@ function notifyUser() {
     userNotification.style.borderColor = 'rgb(0,102,153)';
   } else {
     comment.innerHTML =
-      'Oh no<span>Sorry</span>, not quite right but try another question';
+      'Oh no<span>Sorry</span>, not quite right<br> but try another question';
     userNotification.style.borderColor = 'rgb(255,153,0)';
   }
   checkScore.style.backgroundColor = 'rgb(255, 153, 0)';
@@ -126,6 +146,7 @@ const restartButton = document.querySelector('.restart');
 restartButton.addEventListener('click', startOver);
 function startOver(evt) {
   evt.preventDefault;
+  console.log(usedButtons);
   usedButtons.forEach(item => {
     item.disabled = false;
     item.style.backgroundColor = 'rgb(255, 153, 0)';
