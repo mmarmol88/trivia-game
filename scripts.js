@@ -6,26 +6,29 @@ const welcome = document.querySelector('.welcome');
 const jeopardyArea = document.querySelector('.jeopardy');
 const userNotification = document.querySelector('.notification');
 const comment = document.querySelector('.notify-player');
+const checkScore = document.querySelector('.check-score');
+const answerButtons = document.querySelectorAll('.user-response');
+const answerArray = Array.from(answerButtons);
+const questionOptions = document.querySelectorAll('.grid');
+const gridArray = Array.from(questionOptions);
+const restartButton = document.querySelector('.restart');
 
 //Add functionality that stores name input value and adds event-listener to start button
 let userInput;
 const startButton = document.querySelector('.start');
 startButton.addEventListener('click', startsGame);
 function startsGame(evt) {
-  console.log(evt.target);
   evt.preventDefault();
   userInput = document.querySelector('.user-input').value;
   welcome.style.display = 'none';
   jeopardyArea.style.display = 'grid';
   jeopardyArea.style.gridTemplateRows = '0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr';
   jeopardyArea.style.gridTemplateColumns = '1fr 1fr 1fr';
+  createListener();
 }
 
-//add event-listener to check-score
-const checkScore = document.querySelector('.check-score');
-console.log(checkScore);
+//add event-listener to checkScore
 checkScore.addEventListener('click', scoreChecker);
-
 function scoreChecker() {
   let totalScore = scores.reduce(sumScores);
   comment.innerHTML = `${userInput ||
@@ -34,27 +37,19 @@ function scoreChecker() {
   checkScore.style.color = 'black';
   return totalScore;
 }
+
 function sumScores(total, num) {
   return (total += num);
 }
 
-//Add event listener to the grid options in order to create functionality to display the correct question
-const answerButtons = document.querySelectorAll('.user-response');
-console.log(answerButtons);
-const answerArray = Array.from(answerButtons);
-const questionOptions = document.querySelectorAll('.grid');
-const gridArray = Array.from(questionOptions);
-//add event listener to each button
-function createListener() {
-  //create a loop function to add event listener to the individual buttons
+//Add event listener to all the buttons with the class grid in order to add functionality to display the correct question
+const createListener = function() {
   gridArray.forEach(item => {
     item.addEventListener('click', questionHandler);
-    // item.addEventListener('onmouseup', quizAreaFocus);
   });
-}
+};
 
-createListener();
-//define callback
+//define callback for jeopardy area buttons
 function questionHandler(evt) {
   console.log(evt.target);
   evt.preventDefault();
@@ -62,58 +57,40 @@ function questionHandler(evt) {
   usedButtons.push(selectedButton);
   selectedButton.disabled = true;
   selectedButton.style.backgroundColor = 'rgb(0, 51, 102)';
-
   const questionParameter = `.${evt.target.dataset.key}`;
-
   //remove the user notification
   userNotification.style.display = 'none';
   //Grab the quiz area to un-hide it
   const quizArea = document.querySelector(questionParameter);
   console.log(quizArea);
-
-  //remove event-listener from grid buttons
-  function removeListener() {
-    gridArray.forEach(item => {
-      item.removeEventListener('click', questionHandler);
-    });
-  }
+  addListener();
   removeListener();
-
-  quizArea.style.display = 'inline';
+  quizArea.style.display = 'block';
   quizArea.scrollIntoView();
-  // function addListener() {
-  //   answerArray.forEach(item => {
-  //     item.addEventListener('click', handleAnswer);
-  //   });
-  // }
-  // addListener();
 }
-function addListener() {
+
+const addListener = function() {
   answerArray.forEach(item => {
     item.addEventListener('click', handleAnswer);
   });
-}
-addListener();
+};
 
-// const addListener = function() {
-//   answerArray.forEach(item => {
-//     item.addEventListener('click', handleAnswer);
-//   });
-// };
+//removes listener from buttons of class grid from Jeopardy Area
+const removeListener = function() {
+  gridArray.forEach(item => {
+    item.removeEventListener('click', questionHandler);
+  });
+};
 
 function handleAnswer(evt) {
   console.log(evt);
   //check if answer correct
   const hideQuestionArea = evt.path[3];
-  if (evt.target.nodeName === 'BUTTON' && evt.target.dataset.key === 'xy') {
-    console.log(evt.target);
+  if (evt.target.dataset.key === 'xy') {
     const score = evt.target.value;
     scores.push(score * 10);
     correct = 'yes';
-  } else if (
-    evt.target.nodeName === 'BUTTON' &&
-    evt.target.dataset.key !== 'xy'
-  ) {
+  } else {
     correct = 'no';
   }
   //Add event listener to grid items again
@@ -125,7 +102,7 @@ function handleAnswer(evt) {
 }
 
 //Create function to show notification
-function notifyUser() {
+const notifyUser = function() {
   if (correct === 'yes') {
     comment.innerHTML =
       'Great job! you are <span>correct</span>, go ahead try another question';
@@ -138,11 +115,9 @@ function notifyUser() {
   checkScore.style.backgroundColor = 'rgb(255, 153, 0)';
   checkScore.style.color = 'rgb(228, 233, 237)';
   userNotification.style.display = 'block';
-}
+};
 
-//restart functionality
-const restartButton = document.querySelector('.restart');
-//add event listener
+//event handler to restart button
 restartButton.addEventListener('click', startOver);
 function startOver(evt) {
   evt.preventDefault;
