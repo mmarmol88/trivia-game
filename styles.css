@@ -3,6 +3,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+header {
+  order: 0;
 }
 button,
 .grid,
@@ -30,23 +37,25 @@ h2,
 }
 main {
   display: block;
+  order: 1;
 }
 .notify-player {
   font-weight: bold;
 }
 
 header,
-.footer {
-  padding: 0.5% 10%;
+footer {
+  padding: 0.5% 0%;
 }
 
-.quote,
+,
 p {
   text-align: left;
 }
 
 .quote {
   font-size: 100%;
+  text-align: center;
 }
 .banner {
   color: rgb(255, 153, 0);
@@ -164,17 +173,16 @@ span {
   color: rgb(238, 159, 40);
   padding: 0.5%;
 }
-.footer-content {
-  margin: 0 auto;
-  display: inline;
-}
+
 .notification,
 .jeopardy {
   display: none;
 }
 footer {
-  bottom: 10%;
-  margin: 0 auto;
+  position: static;
+  bottom: 0;
+  margin-top: 13%;
+  order: 2;
 }
 .check-score,
 .restart {

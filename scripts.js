@@ -1,4 +1,3 @@
-console.log('It is a great day to code');
 let scores = [0];
 let correct = [];
 let usedButtons = [];
@@ -51,7 +50,6 @@ const createListener = function() {
 
 //define callback for jeopardy area buttons
 function questionHandler(evt) {
-  console.log(evt.target);
   evt.preventDefault();
   let selectedButton = evt.target;
   usedButtons.push(selectedButton);
@@ -62,7 +60,6 @@ function questionHandler(evt) {
   userNotification.style.display = 'none';
   //Grab the quiz area to un-hide it
   const quizArea = document.querySelector(questionParameter);
-  console.log(quizArea);
   addListener();
   removeListener();
   quizArea.style.display = 'block';
@@ -83,7 +80,6 @@ const removeListener = function() {
 };
 
 function handleAnswer(evt) {
-  console.log(evt);
   //check if answer correct
   const hideQuestionArea = evt.path[3];
   if (evt.target.dataset.key === 'xy') {
@@ -121,7 +117,6 @@ const notifyUser = function() {
 restartButton.addEventListener('click', startOver);
 function startOver(evt) {
   evt.preventDefault;
-  console.log(usedButtons);
   usedButtons.forEach(item => {
     item.disabled = false;
     item.style.backgroundColor = 'rgb(255, 153, 0)';
