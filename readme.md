@@ -21,6 +21,15 @@ The overall goal for this game was to provide the user with randomized trivia qu
 
 #### Features
 
+- Game welcome page
+- Multiple question point value options
+- Score tracking button
+- Game restart
+
+##### Future Additions
+
+As the game develops the game logic will contain randomized questions, and timed as well as multi-player options.
+
 **Bronze:**  
  An HTML page with a grid of buttons that serve as question selectors to begin the game. Once a button is clicked the corresponding question is displayed. The user can then choose an answer and notified wether the response is correct or incorrect etc..
 
