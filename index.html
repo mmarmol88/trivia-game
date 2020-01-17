@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Great use of semantic HTML tags. -->
     <header>
       <p class="banner">
         "A small body of determined spirits fired by an unquenchable faith in
@@ -32,6 +33,7 @@
           </button>
         </form>
       </section>
+      <!-- Great use of grid. -->
       <div class="jeopardy">
         <h2 class="jeopardy-header">
           Choose wisely to test your History knowledge
@@ -52,6 +54,7 @@
         <button class="grid" data-key="europe-500">500</button>
         <button class="grid" data-key="americas-500">500</button>
       </div>
+      <!-- Consider moving this to JavaScript. You can then dynamically create each question and answer set from an array or object. This will speed load times and make your code more DRY. This will also help make it easier to randomize the questions. You can even create an external file just with your questions and import into your main JS file for propagation. -->
       <div class="americas-50">
         <p class="question">
           Have you heard the latest buzz? The Mayans domesticated this native

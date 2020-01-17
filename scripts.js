@@ -1,3 +1,4 @@
+// JM: Are you tracking multiple scores? I think you can just use an integer (ex. 0). It looks like you're also only tracking correct one at a time, so may also need only be an integer.
 let scores = [0];
 let correct = [];
 let usedButtons = [];
@@ -7,6 +8,7 @@ const userNotification = document.querySelector('.notification');
 const comment = document.querySelector('.notify-player');
 const checkScore = document.querySelector('.check-score');
 const answerButtons = document.querySelectorAll('.user-response');
+// JM: answerArray is redundant as answerButtons is already an array.  See also questionOptions and gridArray.
 const answerArray = Array.from(answerButtons);
 const questionOptions = document.querySelectorAll('.grid');
 const gridArray = Array.from(questionOptions);
